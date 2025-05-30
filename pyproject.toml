@@ -1,0 +1,32 @@
+[project]
+name = "novelvizai"
+version = "0.1.0"
+description = "NovelVizAI is a generative AI project that transforms written novels and stories into compelling visual representations."
+readme = "README.md"
+authors = [
+    { name = "chogerlate", email = "siwaratlaopromger4444@gmail.com" }
+]
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+novelvizai = "novelvizai:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.5",
+]
+lint = [
+    "ruff>=0.11.12",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--maxfail=1 -v"
+
+[tool.ruff.lint]
+extend-select = ["B"]
