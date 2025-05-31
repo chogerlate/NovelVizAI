@@ -1,20 +1,50 @@
 [project]
-name = "novelvizai"
+name = "novel-companion-ai"
 version = "0.1.0"
-description = "NovelVizAI is a generative AI project that transforms written novels and stories into compelling visual representations."
+description = "AI-driven reading assistant with intelligent chapter summarization, dynamic character mapping, and interactive story companion using OpenRouter DeepSeek R1"
 readme = "README.md"
 authors = [
     { name = "chogerlate", email = "siwaratlaopromger4444@gmail.com" }
 ]
 requires-python = ">=3.10"
-dependencies = []
+dependencies = [
+    "fastapi[standard]>=0.104.1",
+    "uvicorn[standard]>=0.24.0",
+    "openai>=1.3.0",
+    "python-multipart>=0.0.6",
+    "python-dotenv>=1.0.0",
+    "sqlalchemy>=2.0.23",
+    "pydantic>=2.5.0",
+    "pydantic-settings>=2.0.0",
+    "spacy>=3.7.2",
+    "networkx>=3.2.1",
+    "httpx>=0.25.2",
+    "aiofiles>=23.2.1",
+    "jinja2>=3.1.2",
+    "python-jose[cryptography]>=3.3.0",
+    "passlib[bcrypt]>=1.7.4",
+    "matplotlib>=3.8.2",
+    "plotly>=5.17.0",
+    "pandas>=2.1.4",
+    "numpy>=1.25.2",
+    "scikit-learn>=1.3.2",
+    "en-core-web-sm",
+    "motor>=3.3.0",
+    "pymongo>=4.6.0",
+    "beanie>=1.24.0",
+    "markitdown[all]>=0.1.2",
+    "ipykernel>=6.29.5",
+]
 
 [project.scripts]
-novelvizai = "novelvizai:main"
+novel-companion = "novel_companion:main"
 
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/novel_companion"]
 
 [dependency-groups]
 dev = [
@@ -30,3 +60,6 @@ addopts = "--maxfail=1 -v"
 
 [tool.ruff.lint]
 extend-select = ["B"]
+
+[tool.uv.sources]
+en-core-web-sm = { url = "https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl" }

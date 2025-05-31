@@ -172,3 +172,13 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+notebooks/
+
+/data/**/*.md
+/data/**/*.txt
+/data/**/*.csv
+/data/**/*.json
+/data/**/*.jsonl
+/data/**/*.parquet
+/data/**/*.feather
